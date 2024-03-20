@@ -15,10 +15,14 @@ install_basics() {
     awscli \
     wget \
     &&
+    
     echo "Half way there"
+    echo "Starting Anaconda step"
+    
     # Download Anaconda installer
     wget -q https://repo.anaconda.com/archive/Anaconda3-latest-Linux-x86_64.sh -O /tmp/anaconda.sh &&
-    
+
+    echo "Run Anaconda"
     # Run Anaconda installer
     bash /tmp/anaconda.sh -b -p /opt/anaconda3 &&
 
