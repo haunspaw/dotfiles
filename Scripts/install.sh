@@ -20,7 +20,7 @@ install_basics() {
     echo "Starting Anaconda step"
     
     # Download Anaconda installer
-    wget -q https://repo.anaconda.com/archive/Anaconda3-2024.02-1-Linux-x86_64.sh-O /tmp/anaconda.sh &&
+    wget -q https://repo.anaconda.com/archive/Anaconda3-2024.02-1-Linux-x86_64.sh -O /tmp/anaconda.sh &&
 
     echo "Run Anaconda"
     # Run Anaconda installer
