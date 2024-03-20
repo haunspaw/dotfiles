@@ -14,17 +14,49 @@ install_basics() {
     bastet \
     awscli \
     wget \
-    &&
+    git
     
     echo "Half way there"
     echo "Starting Anaconda step"
     
     # Download Anaconda installer
-    wget -q https://repo.anaconda.com/archive/Anaconda3-2024.02-1-Linux-x86_64.sh -O /tmp/anaconda.sh &&
-
+    wget -q https://repo.anaconda.com/archive/Anaconda3-2024.02-1-Linux-x86_64.sh -O /tmp/anaconda.sh
+    
     echo "Run Anaconda"
     # Run Anaconda installer
     bash /tmp/anaconda.sh -b -p /opt/anaconda3 &&
+
+    # Remove Anaconda installer script
+    rm /tmp/anaconda.sh
+
+    echo "Installing Vundle"
+    # Clone Vundle repository
+    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+
+    echo "Downloading Gotham colorscheme"
+    # Download Gotham colorscheme file
+    wget https://raw.githubusercontent.com/whatyouhide/vim-gotham/master/colors/gotham.vim -P ~/.vim/colors/
+
+    echo "Updating .vimrc"
+    # Update .vimrc to use Gotham colorscheme and include Syntastic plugin
+    cat <<EOF >> ~/.vimrc
+set nocompatible              " be iMproved, required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/syntastic'    " Syntastic plugin
+" Add your other plugins here
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+colorscheme gotham
+EOF
 
     echo "Finished installing"
 }
