@@ -40,20 +40,21 @@ install_basics() {
     echo "Updating .vimrc"
     # Update .vimrc to use Gotham colorscheme and include Syntastic plugin
     cat <<EOF >> ~/.vimrc
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/syntastic'    " Syntastic plugin
-" Add your other plugins here
+# " set the runtime path to include Vundle and initialize
+# set rtp+=~/.vim/bundle/Vundle.vim
+# call vundle#begin()
+# " let Vundle manage Vundle, required
+# Plugin 'VundleVim/Vundle.vim'
+# Plugin 'scrooloose/syntastic'    " Syntastic plugin
+# " Add your other plugins here
 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+# " All of your Plugins must be added before the following line
+# call vundle#end()            " required
+# filetype plugin indent on    " required
 
 colorscheme gotham
 EOF
