@@ -66,6 +66,7 @@ git_config() {
     git config --global user.email "aunspaw.3@wright.edu"
     git config --global user.name "Harrison Aunspaw"
     git config --global core.editor nano
+    cp ~/.gitconfig ~/dotfiles/.gitconfig
 }
 
 set_alias() {
@@ -73,11 +74,19 @@ echo "alias h='history'" >> ~/.bashrc
 echo "alias gl='git log'" >> ~/.bashrc
 echo "alias diskspace='du -S | sort -n -r |more'" >> ~/.bashrc
 source ~/.bashrc
+cp ~/.bashrc ~/dotfiles/.bashrc
 }
 
 set_ln() {
 echo "enter ln info"
 }
+mkdir -p ~/.ssh
+cat <<EOT > ~/.ssh/config
+Host fry.cs.wright.edu
+    Hostname fry.cs.wright.edu
+    User your_username_here
+EOT
+ln -sf ~/dotfiles/config ~/.ssh/config
 
 # Call the functions
 install_basics
