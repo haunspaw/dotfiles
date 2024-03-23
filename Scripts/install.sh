@@ -69,9 +69,9 @@ git_config() {
 }
 
 set_alias() {
-echo "alias h='history'" >> ~/.bashrc
-echo "alias gl='git log'" >> ~/.bashrc
-echo "alias diskspace='du -S | sort -n -r |more'" >> ~/.bashrc
+echo "alias h='history'" >> $HOME/.bashrc
+echo "alias gl='git log'" >> $HOME/.bashrc
+echo "alias diskspace='du -S | sort -n -r |more'" >> $HOME/.bashrc
 source ~/.bashrc
 cp ~/.bashrc ~/dotfiles/.bashrc
 }
