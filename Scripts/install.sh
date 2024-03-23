@@ -24,7 +24,7 @@ install_basics() {
     
     echo "Run Anaconda"
     # Run Anaconda installer
-    bash /tmp/anaconda.sh -b -p /opt/anaconda3 &&
+    bash /tmp/anaconda.sh -b -p /opt/anaconda3 
 
     # Remove Anaconda installer script
     rm /tmp/anaconda.sh
@@ -68,6 +68,20 @@ git_config() {
     git config --global core.editor nano
 }
 
+set_alias() {
+echo "alias h='history'" >> ~/.bashrc
+echo "alias gl='git log'" >> ~/.bashrc
+echo "alias diskspace='du -S | sort -n -r |more'" >> ~/.bashrc
+source ~/.bashrc
+}
+
+set_ln() {
+echo "enter ln info"
+}
+
 # Call the functions
 install_basics
 git_config
+set_alias
+set_ln
+
